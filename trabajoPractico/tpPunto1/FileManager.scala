@@ -48,7 +48,7 @@ class AutomataFile(val lines:Array[String]) {
       
       if((map get initialState).equals(None)){
         val submap = Map(imput -> finalState)
-        map += ("a" -> submap)
+        map + ("initialState" -> submap)
         
         println("\t\t\tsubmap: " + submap)
         println("\t\t\tmap: " + (map get "a").toString())
@@ -56,10 +56,12 @@ class AutomataFile(val lines:Array[String]) {
       else {
         val submap = map.apply(initialState)
         submap + (imput -> finalState)
+        println("else - Fin")
       }
       
       transitionFunction(a + 1, map)
     } else {
+      println("other else - end")
       map
     }
   }
